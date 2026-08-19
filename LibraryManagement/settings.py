@@ -31,6 +31,10 @@ LOGIN_URL = "login"
 LOGIN_REDIRECT_URL = "dashboard"
 LOGOUT_REDIRECT_URL = "login"
 
+# Log the user out when the browser is completely closed.
+# The authentication session cookie will not be persisted by the browser.
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
 
 # Application definition
 
@@ -82,7 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'library_db',
         'USER': 'YOUR_USERNAME',
-        'PASSWORD': 'YOUR_PASSWORD',
+        'PASSWORD': 'YOUR_PASS',
         'HOST': 'localhost',
         'PORT': '3306',
     }
