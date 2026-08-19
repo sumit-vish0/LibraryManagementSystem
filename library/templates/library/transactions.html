@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Transactions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    {% load static %}
+        <link rel="stylesheet" href="/static/library/style.css">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="{% url 'dashboard' %}">
+            📚 Library Management
+        </a>
+        <div>
+            <a href="{% url 'dashboard' %}" class="btn btn-light me-2">
+                Dashboard
+            </a>
+
+            <a href="{% url 'home' %}" class="btn btn-light me-2">
+                Books
+            </a>
+
+            <a href="{% url 'students' %}" class="btn btn-light me-2">
+                Students
+            </a>
+
+            <a href="{% url 'issue_book' %}" class="btn btn-light me-2">
+                Issue
+            </a>
+
+            <a href="{% url 'transactions' %}" class="btn btn-light me-2">
+                Transactions
+            </a>
+            <a href="{% url 'logout' %}" class="btn btn-danger">
+                Logout
+            </a>
+        </div>
+    </div>
+</nav>
+
+    <h1>Transaction History</h1>
+    <br />
+    <a href="{% url 'issue_book' %}" class="btn btn-success mb-4">
+    Issue New Book
+</a>
+    <br /><br />
+
+    <table class="table table-hover table-bordered shadow">
+      <tr>
+        <th>Student</th>
+        <th>Book</th>
+        <th>Issue Date</th>
+        <th>Due Date</th>
+        <th>Status</th>
+        <th>Fine</th>
+        <th>Action</th>
+      </tr>
+      {% for transaction in transactions %}
+      <tr>
+        <td>{{ transaction.student.name }}</td>
+        <td>{{ transaction.book.title }}</td>
+        <td>{{ transaction.issue_date }}</td>
+        <td>{{ transaction.due_date }}</td>
+        <td>{% if transaction.status == "RETURNED" %}
+<span class="badge bg-success">
+    Returned
+</span>
+{% else %}
+<span class="badge bg-warning text-dark">
+    Issued
+</span>
+{% endif %}</td>
+        <td>
+{% if transaction.fine == 0 %}
+<span class="text-success">
+    ₹0
+</span>
+{% else %}
+<span class="text-danger fw-bold">
+    ₹{{ transaction.fine }}
+</span>
+{% endif %}
+</td>
+        <td>
+          {% if transaction.status == "ISSUED" %}
+          <a href="{% url 'return_book' transaction.id %}"
+   class="btn btn-sm btn-warning">
+    Return
+</a>
+          {% else %} <span class="text-success fw-bold">
+    ✔ Returned
+</span> {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    <hr>
+
+<center>
+
+Library Management System
+
+Developed by Praveen
+
+</center>
+  </body>
+</html>

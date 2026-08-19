@@ -1,0 +1,59 @@
+body{
+    background:#f4f7fb;
+}
+
+.navbar{
+    padding:15px;
+}
+
+.table{
+    background:white;
+}
+
+.table td{
+    vertical-align:middle;
+}
+
+.btn{
+    border-radius:8px;
+}
+
+.card{
+    border:none;
+}
+
+footer{
+    font-size:15px;
+}
+.card{
+    border-radius:15px;
+}
+
+.card h1{
+    font-size:42px;
+    font-weight:bold;
+}
+
+.card-header{
+    font-size:18px;
+    font-weight:bold;
+}
+form input,
+form select,
+form textarea{
+
+    width:100%;
+
+    padding:10px;
+
+    border:1px solid #ced4da;
+
+    border-radius:8px;
+
+}
+
+label{
+
+    font-weight:600;
+
+}

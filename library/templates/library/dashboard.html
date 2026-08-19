@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    {% load static %}
+        <link rel="stylesheet" href="/static/library/style.css">
+        
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="{% url 'dashboard' %}">
+            📚 Library Management
+        </a>
+        <div>
+            <a href="{% url 'dashboard' %}" class="btn btn-light me-2">
+                Dashboard
+            </a>
+
+            <a href="{% url 'home' %}" class="btn btn-light me-2">
+                Books
+            </a>
+
+            <a href="{% url 'students' %}" class="btn btn-light me-2">
+                Students
+            </a>
+
+            <a href="{% url 'issue_book' %}" class="btn btn-light me-2">
+                Issue
+            </a>
+
+            <a href="{% url 'transactions' %}" class="btn btn-light me-2">
+                Transactions
+            </a>
+            <a href="{% url 'logout' %}" class="btn btn-danger">
+                Logout
+            </a>
+        </div>
+    </div>
+</nav>
+<hr>
+
+<div class="container mt-5">
+
+    <h2 class="mb-4 fw-bold">
+        Dashboard
+    </h2>
+
+    <div class="row">
+
+        <div class="col-md-3">
+
+            <div class="card shadow border-0 text-center bg-primary text-white">
+
+                <div class="card-body">
+
+                    <h5>Total Books</h5>
+
+                    <h1>{{ total_books }}</h1>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card shadow border-0 text-center bg-success text-white">
+
+                <div class="card-body">
+
+                    <h5>Total Students</h5>
+
+                    <h1>{{ total_students }}</h1>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card shadow border-0 text-center bg-warning text-dark">
+
+                <div class="card-body">
+
+                    <h5>Issued Books</h5>
+
+                    <h1>{{ issued_books }}</h1>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card shadow border-0 text-center bg-danger text-white">
+
+                <div class="card-body">
+
+                    <h5>Available Copies</h5>
+
+                    <h1>{{ available_books }}</h1>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row mt-5">
+
+        <div class="col-md-6">
+
+            <div class="card shadow">
+
+                <div class="card-header bg-dark text-white">
+
+                    Quick Actions
+
+                </div>
+
+                <div class="card-body">
+
+                    <a href="{% url 'add_book' %}" class="btn btn-success m-2">
+                        Add Book
+                    </a>
+
+                    <a href="{% url 'add_student' %}" class="btn btn-primary m-2">
+                        Add Student
+                    </a>
+
+                    <a href="{% url 'issue_book' %}" class="btn btn-warning m-2">
+                        Issue Book
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+
+            <div class="card shadow">
+
+                <div class="card-header bg-dark text-white">
+
+                    System Information
+
+                </div>
+
+                <div class="card-body">
+
+                    <p><strong>Project :</strong> Library Management System</p>
+
+                    <p><strong>Framework :</strong> Django</p>
+
+                    <p><strong>Database :</strong> Mysql</p>
+
+                    <p><strong>Developer :</strong> Sumit Vishwakarma</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer class="text-center mt-5 mb-3 text-muted">
+
+<hr>
+
+Library Management System © 2026
+
+<br>
+
+Developed by <b>Sumit</b>
+
+</footer>
+</body>
+</html>
